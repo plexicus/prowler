@@ -35,8 +35,8 @@ spec:
             {{- if and (eq $.Values.clusterType "gke") (eq $key "srvKubernetes") }}
             {{- else }}
             - name: {{ $key | lower }}
-              hostPath:
-                path: {{ $value }}
+              configMap:
+                name: {{ $key | lower }}
             {{- end }}
           {{- end }}
 
